@@ -32,6 +32,31 @@ class PriorityQueue extends Queue {
   toArray() {
     return this.items.map((item) => item.item);
   }
+
+  changePriority(item, newPriority) {
+    const index = this.items.findIndex((i) => {
+      if (i.item === item) {
+        return true;
+      }
+
+      if (
+        typeof i.item === "object" &&
+        typeof item === "object" &&
+        i.item !== null &&
+        item !== null
+      ) {
+        return JSON.stringify(i.item) === JSON.stringify(item);
+      }
+      return false;
+    });
+    if (index === -1) {
+      throw new Error("Item not found");
+    }
+    this.items[index].priority = newPriority;
+    this.items.sort((a, b) =>
+      this.descending ? b.priority - a.priority : a.priority - b.priority,
+    );
+  }
 }
 
 export default PriorityQueue;
