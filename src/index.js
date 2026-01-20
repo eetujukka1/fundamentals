@@ -3,4 +3,10 @@
  * Main entry point for the library
  */
 
-export default {};
+import Queue from './queue';
+import PriorityQueue from './priorityqueue';
+
+export {
+    Queue,
+    PriorityQueue
+};
