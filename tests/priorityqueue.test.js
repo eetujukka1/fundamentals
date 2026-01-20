@@ -2,57 +2,57 @@ import { PriorityQueue } from "../src/index";
 import { describe, it, expect } from "@jest/globals";
 
 describe("PriorityQueue", () => {
-    it("should create a priority queue", () => {
-        const queue = new PriorityQueue();
-        expect(queue).toBeDefined();
-    });
-    
-    it("should enqueue an item", () => {
-        const queue = new PriorityQueue();
-        queue.enqueue(1, 1);
-        expect(queue.size()).toBe(1);
-        expect(queue.isEmpty()).toBe(false);
-    });
-    
-    it("should dequeue an item", () => {
-        const queue = new PriorityQueue();
-        queue.enqueue(3, 3);
-        queue.enqueue(2, 2);
-        queue.enqueue(1, 1);
-        expect(queue.dequeue()).toBe(1);
-        expect(queue.isEmpty()).toBe(false);
-    });
-    
-    it("should peek at the front item", () => {
-        const queue = new PriorityQueue();
-        queue.enqueue(3, 3);
-        queue.enqueue(2, 2);
-        queue.enqueue(1, 1);
-        expect(queue.peek()).toBe(1);
-    });
-    
-    it("should check if queue is empty", () => {
-        const queue = new PriorityQueue();
-        expect(queue.isEmpty()).toBe(true);
-    });
-    
-    it("should check if queue is not empty", () => {
-        const queue = new PriorityQueue();
-        queue.enqueue(1, 1);
-        expect(queue.isEmpty()).toBe(false);
-    });
-    
-    it("should return the size of the queue", () => {
-        const queue = new PriorityQueue();
-        queue.enqueue(1, 1);
-        expect(queue.size()).toBe(1);
-    });
-    
-    it("should return an array of items", () => {
-        const queue = new PriorityQueue();
-        queue.enqueue(3, 3);
-        queue.enqueue(2, 2);
-        queue.enqueue(1, 1);
-        expect(queue.toArray()).toEqual([1, 2, 3]);
-    });
+  it("should create a priority queue", () => {
+    const queue = new PriorityQueue();
+    expect(queue).toBeDefined();
+  });
+
+  it("should enqueue an item", () => {
+    const queue = new PriorityQueue();
+    queue.enqueue(1, 1);
+    expect(queue.size()).toBe(1);
+    expect(queue.isEmpty()).toBe(false);
+  });
+
+  it("should dequeue an item", () => {
+    const queue = new PriorityQueue();
+    queue.enqueue(3, 3);
+    queue.enqueue(2, 2);
+    queue.enqueue(1, 1);
+    expect(queue.dequeue()).toBe(1);
+    expect(queue.isEmpty()).toBe(false);
+  });
+
+  it("should peek at the front item", () => {
+    const queue = new PriorityQueue();
+    queue.enqueue(3, 3);
+    queue.enqueue(2, 2);
+    queue.enqueue(1, 1);
+    expect(queue.peek()).toBe(1);
+  });
+
+  it("should check if queue is empty", () => {
+    const queue = new PriorityQueue();
+    expect(queue.isEmpty()).toBe(true);
+  });
+
+  it("should check if queue is not empty", () => {
+    const queue = new PriorityQueue();
+    queue.enqueue(1, 1);
+    expect(queue.isEmpty()).toBe(false);
+  });
+
+  it("should return the size of the queue", () => {
+    const queue = new PriorityQueue();
+    queue.enqueue(1, 1);
+    expect(queue.size()).toBe(1);
+  });
+
+  it("should return an array of items", () => {
+    const queue = new PriorityQueue();
+    queue.enqueue(3, 3);
+    queue.enqueue(2, 2);
+    queue.enqueue(1, 1);
+    expect(queue.toArray()).toEqual([1, 2, 3]);
+  });
 });
