@@ -23,6 +23,15 @@ describe("PriorityQueue", () => {
     expect(queue.isEmpty()).toBe(false);
   });
 
+  it("should dequeue an item with descending priority", () => {
+    const queue = new PriorityQueue(true);
+    queue.enqueue(1, 1);
+    queue.enqueue(2, 2);
+    queue.enqueue(3, 3);
+    expect(queue.dequeue()).toBe(3);
+    expect(queue.isEmpty()).toBe(false);
+  });
+
   it("should peek at the front item", () => {
     const queue = new PriorityQueue();
     queue.enqueue(3, 3);
