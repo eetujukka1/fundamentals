@@ -1,0 +1,30 @@
+{
+  "name": "fundamentals",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/eetujukka1/fundamentals#readme",
+  "bugs": {
+    "url": "https://github.com/eetujukka1/fundamentals/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eetujukka1/fundamentals.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "lint": "eslint",
+    "format": "npx prettier --write .",
+    "checkformat": "npx prettier --check ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "eslint": "^9.39.2",
+    "globals": "^17.0.0",
+    "jest": "^30.2.0",
+    "prettier": "^3.8.0"
+  }
+}
