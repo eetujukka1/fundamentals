@@ -23,6 +23,15 @@ describe("PriorityQueue", () => {
     expect(queue.isEmpty()).toBe(false);
   });
 
+  it("should dequeue an item with descending priority", () => {
+    const queue = new PriorityQueue(true);
+    queue.enqueue(1, 1);
+    queue.enqueue(2, 2);
+    queue.enqueue(3, 3);
+    expect(queue.dequeue()).toBe(3);
+    expect(queue.isEmpty()).toBe(false);
+  });
+
   it("should peek at the front item", () => {
     const queue = new PriorityQueue();
     queue.enqueue(3, 3);
@@ -54,5 +63,14 @@ describe("PriorityQueue", () => {
     queue.enqueue(2, 2);
     queue.enqueue(1, 1);
     expect(queue.toArray()).toEqual([1, 2, 3]);
+  });
+
+  it("should change the priority of an item", () => {
+    const queue = new PriorityQueue();
+    queue.enqueue({ id: 1 }, 1);
+    queue.enqueue({ id: 2 }, 2);
+    queue.enqueue({ id: 3 }, 3);
+    queue.changePriority({ id: 2 }, 4);
+    expect(queue.toArray()).toEqual([{ id: 1 }, { id: 3 }, { id: 2 }]);
   });
 });
