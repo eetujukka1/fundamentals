@@ -24,7 +24,7 @@ describe("PriorityQueue", () => {
   });
 
   it("should dequeue an item with descending priority", () => {
-    const queue = new PriorityQueue(true);
+    const queue = new PriorityQueue({ descending: true });
     queue.enqueue(1, 1);
     queue.enqueue(2, 2);
     queue.enqueue(3, 3);
