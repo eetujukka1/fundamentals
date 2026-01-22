@@ -1,8 +1,9 @@
 import Queue from "../queue";
 
 class PriorityQueue extends Queue {
-  constructor(descending = false) {
+  constructor(options = {}) {
     super();
+    const { descending = false } = options;
     this.descending = descending;
   }
 
