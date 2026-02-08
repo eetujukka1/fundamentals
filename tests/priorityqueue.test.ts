@@ -19,7 +19,7 @@ describe("PriorityQueue", () => {
     queue.enqueue(3, 3);
     queue.enqueue(2, 2);
     queue.enqueue(1, 1);
-    expect(queue.dequeue()).toBe(1);
+    expect(queue.dequeue()).toStrictEqual({ item: 1, priority: 1 });
     expect(queue.isEmpty()).toBe(false);
   });
 
@@ -28,7 +28,7 @@ describe("PriorityQueue", () => {
     queue.enqueue(1, 1);
     queue.enqueue(2, 2);
     queue.enqueue(3, 3);
-    expect(queue.dequeue()).toBe(3);
+    expect(queue.dequeue()).toStrictEqual({ item: 3, priority: 3 });
     expect(queue.isEmpty()).toBe(false);
   });
 
@@ -37,7 +37,7 @@ describe("PriorityQueue", () => {
     queue.enqueue(3, 3);
     queue.enqueue(2, 2);
     queue.enqueue(1, 1);
-    expect(queue.peek()).toBe(1);
+    expect(queue.peek()).toStrictEqual({ item: 1, priority: 1 });
   });
 
   it("should check if queue is empty", () => {

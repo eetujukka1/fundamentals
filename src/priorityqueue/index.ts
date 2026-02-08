@@ -24,13 +24,20 @@ class PriorityQueue<T> {
     );
   }
 
-  dequeue(): T | undefined {
+  dequeue(): PriorityQueueItem<T> | undefined {
     const entry = this.items.shift();
-    return entry?.item;
+    if (!entry) {
+      return;
+    }
+    return entry;
   }
 
-  peek(): T | undefined {
-    return this.items[0]?.item;
+  peek(): PriorityQueueItem<T> | undefined {
+    const entry = this.items[0];
+    if (!entry) {
+      return;
+    }
+    return entry;
   }
 
   isEmpty(): boolean {
