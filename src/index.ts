@@ -3,7 +3,7 @@
  * Main entry point for the library
  */
 
-import Queue from "./queue";
-import PriorityQueue from "./priorityqueue";
+import Queue from "./queue/index.js";
+import PriorityQueue from "./priorityqueue/index.js";
 
 export { Queue, PriorityQueue };

@@ -1,29 +1,31 @@
-class Queue {
+class Queue<T> {
+  protected items: T[];
+
   constructor() {
     this.items = [];
   }
 
-  enqueue(item) {
+  enqueue(item: T): void {
     this.items.push(item);
   }
 
-  dequeue() {
+  dequeue(): T | undefined {
     return this.items.shift();
   }
 
-  peek() {
+  peek(): T | undefined {
     return this.items[0];
   }
 
-  isEmpty() {
+  isEmpty(): boolean {
     return this.items.length === 0;
   }
 
-  size() {
+  size(): number {
     return this.items.length;
   }
 
-  toArray() {
+  toArray(): T[] {
     return this.items;
   }
 }

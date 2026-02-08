@@ -1,4 +1,4 @@
-import { PriorityQueue } from "../src/index";
+import { PriorityQueue } from "../src/index.js";
 import { describe, it, expect } from "@jest/globals";
 
 describe("PriorityQueue", () => {

@@ -1,6 +1,6 @@
 {
   "name": "js-fundamentals",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "homepage": "https://github.com/eetujukka1/fundamentals#readme",
   "bugs": {
@@ -13,8 +13,19 @@
   "license": "ISC",
   "author": "",
   "type": "module",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "tsc",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "lint": "eslint",
     "format": "npx prettier --write .",
@@ -22,9 +33,13 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
+    "@types/jest": "^30.0.0",
     "eslint": "^9.39.2",
     "globals": "^17.0.0",
     "jest": "^30.2.0",
-    "prettier": "^3.8.0"
+    "prettier": "^3.8.0",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.54.0"
   }
 }

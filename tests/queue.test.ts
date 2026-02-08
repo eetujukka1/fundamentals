@@ -1,4 +1,4 @@
-import Queue from "../src/queue";
+import Queue from "../src/queue/index.js";
 import { describe, it, expect } from "@jest/globals";
 
 describe("Queue", () => {

@@ -1,40 +1,51 @@
-import Queue from "../queue";
+interface PriorityQueueItem<T> {
+  item: T;
+  priority: number;
+}
 
-class PriorityQueue extends Queue {
-  constructor(options = {}) {
-    super();
+interface PriorityQueueOptions {
+  descending?: boolean;
+}
+
+class PriorityQueue<T> {
+  private items: PriorityQueueItem<T>[];
+  private descending: boolean;
+
+  constructor(options: PriorityQueueOptions = {}) {
+    this.items = [];
     const { descending = false } = options;
     this.descending = descending;
   }
 
-  enqueue(item, priority) {
+  enqueue(item: T, priority: number): void {
     this.items.push({ item, priority });
     this.items.sort((a, b) =>
       this.descending ? b.priority - a.priority : a.priority - b.priority,
     );
   }
 
-  dequeue() {
-    return this.items.shift().item;
+  dequeue(): T | undefined {
+    const entry = this.items.shift();
+    return entry?.item;
   }
 
-  peek() {
-    return this.items[0].item;
+  peek(): T | undefined {
+    return this.items[0]?.item;
   }
 
-  isEmpty() {
+  isEmpty(): boolean {
     return this.items.length === 0;
   }
 
-  size() {
+  size(): number {
     return this.items.length;
   }
 
-  toArray() {
-    return this.items.map((item) => item.item);
+  toArray(): T[] {
+    return this.items.map((entry) => entry.item);
   }
 
-  changePriority(item, newPriority) {
+  changePriority(item: T, newPriority: number): void {
     const index = this.items.findIndex((i) => {
       if (i.item === item) {
         return true;
