@@ -53,21 +53,7 @@ class PriorityQueue<T> {
   }
 
   changePriority(item: T, newPriority: number): void {
-    const index = this.items.findIndex((i) => {
-      if (i.item === item) {
-        return true;
-      }
-
-      if (
-        typeof i.item === "object" &&
-        typeof item === "object" &&
-        i.item !== null &&
-        item !== null
-      ) {
-        return JSON.stringify(i.item) === JSON.stringify(item);
-      }
-      return false;
-    });
+    const index = this.items.findIndex((i) => this.itemsEqual(i.item, item));
     if (index === -1) {
       throw new Error("Item not found");
     }
@@ -75,6 +61,25 @@ class PriorityQueue<T> {
     this.items.sort((a, b) =>
       this.descending ? b.priority - a.priority : a.priority - b.priority,
     );
+  }
+
+  remove(item: T): void {
+    this.items = this.items.filter((i) => !this.itemsEqual(i.item, item));
+  }
+
+  private itemsEqual(a: T, b: T): boolean {
+    if (a === b) {
+      return true;
+    }
+    if (
+      typeof a === "object" &&
+      typeof b === "object" &&
+      a !== null &&
+      b !== null
+    ) {
+      return JSON.stringify(a) === JSON.stringify(b);
+    }
+    return false;
   }
 }
 

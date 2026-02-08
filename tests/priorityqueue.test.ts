@@ -73,4 +73,13 @@ describe("PriorityQueue", () => {
     queue.changePriority({ id: 2 }, 4);
     expect(queue.toArray()).toEqual([{ id: 1 }, { id: 3 }, { id: 2 }]);
   });
+
+  it("should remove an item from the queue", () => {
+    const queue = new PriorityQueue();
+    queue.enqueue({ id: 1 }, 1);
+    queue.enqueue({ id: 2 }, 2);
+    queue.enqueue({ id: 3 }, 3);
+    queue.remove({ id: 2 });
+    expect(queue.toArray()).toEqual([{ id: 1 }, { id: 3 }]);
+  });
 });
