@@ -63,8 +63,13 @@ class PriorityQueue<T> {
     );
   }
 
-  remove(item: T): void {
-    this.items = this.items.filter((i) => !this.itemsEqual(i.item, item));
+  remove(item: T): PriorityQueueItem<T> | undefined {
+    const index = this.items.findIndex((i) => this.itemsEqual(i.item, item));
+    if (index === -1) {
+      return undefined;
+    }
+    const [removed] = this.items.splice(index, 1);
+    return removed;
   }
 
   private itemsEqual(a: T, b: T): boolean {

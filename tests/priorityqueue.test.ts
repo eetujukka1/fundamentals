@@ -74,12 +74,21 @@ describe("PriorityQueue", () => {
     expect(queue.toArray()).toEqual([{ id: 1 }, { id: 3 }, { id: 2 }]);
   });
 
-  it("should remove an item from the queue", () => {
+  it("should remove an item from the queue and return it with its priority", () => {
     const queue = new PriorityQueue();
     queue.enqueue({ id: 1 }, 1);
     queue.enqueue({ id: 2 }, 2);
     queue.enqueue({ id: 3 }, 3);
-    queue.remove({ id: 2 });
+    const removed = queue.remove({ id: 2 });
+    expect(removed).toStrictEqual({ item: { id: 2 }, priority: 2 });
     expect(queue.toArray()).toEqual([{ id: 1 }, { id: 3 }]);
+  });
+
+  it("should return undefined when removing an item that is not in the queue", () => {
+    const queue = new PriorityQueue();
+    queue.enqueue({ id: 1 }, 1);
+    const removed = queue.remove({ id: 99 });
+    expect(removed).toBeUndefined();
+    expect(queue.toArray()).toEqual([{ id: 1 }]);
   });
 });
